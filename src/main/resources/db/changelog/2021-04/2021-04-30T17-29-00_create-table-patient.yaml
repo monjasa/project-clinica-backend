@@ -1,0 +1,50 @@
+databaseChangeLog:
+- changeSet:
+    id: 2021-04-30T17-29-00_create-table-patient_1
+    author: monjasa
+    changes:
+      - createTable:
+          columns:
+            - column:
+                constraints:
+                  nullable: false
+                name: main_user_id
+                type: INTEGER
+            - column:
+                name: occupation
+                type: VARCHAR(64)
+            - column:
+                name: insurance_number
+                type: VARCHAR(20)
+            - column:
+                defaultValueComputed: now()
+                name: created_date
+                type: TIMESTAMP(3) WITHOUT TIME ZONE
+            - column:
+                defaultValue: system
+                name: created_by
+                type: VARCHAR(254)
+            - column:
+                defaultValueComputed: now()
+                name: last_modified_date
+                type: TIMESTAMP(3) WITHOUT TIME ZONE
+            - column:
+                defaultValue: system
+                name: last_modified_by
+                type: VARCHAR(254)
+          tableName: patient
+- changeSet:
+    id: 2021-04-30T17-29-00_create-table-patient_2
+    author: monjasa
+    changes:
+      - addForeignKeyConstraint:
+          baseColumnNames: main_user_id
+          baseTableName: patient
+          constraintName: fk_patient_main_user
+          deferrable: false
+          initiallyDeferred: false
+          onDelete: NO ACTION
+          onUpdate: NO ACTION
+          referencedColumnNames: id
+          referencedTableName: main_user
+          validate: true

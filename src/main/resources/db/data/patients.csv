@@ -1,0 +1,41 @@
+main_user_id,occupation,insurance_number,created_date,created_by,last_modified_date,last_modified_by
+21,Human Resources Assistant,5443020579,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+22,Not Specified,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+23,Nurse,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+24,Not Specified,3633222081,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+25,Sales Associate,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+26,Paralegal,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+27,Quality Engineer,7374311443,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+28,Human Resources Manager,4706933048,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+29,Senior Financial Analyst,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+30,Internal Auditor,3625058898,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+31,Marketing Manager,4177874558,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+32,Occupational Therapist,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+33,Analog Circuit Design manager,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+34,Payment Adjustment Coordinator,2345375337,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+35,Not Specified,4561837310,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+36,Not Specified,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+37,Electrical Engineer,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+38,Software Test Engineer,9414799494,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+39,VP Sales,0263520846,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+40,Not Specified,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+41,Occupational Therapist,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+42,Health Coach,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+43,Teacher,0258671319,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+44,Nurse,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+45,Internal Auditor,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+46,VP Accounting,1323010831,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+47,Not Specified,1337776327,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+48,Not Specified,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+49,Not Specified,4779842883,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+50,Marketing Manager,2692750004,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+51,Occupational Therapist,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+52,Not Specified,6503840616,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+53,Nurse,7028447065,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+54,Project Manager,7417837956,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+55,Professor,3322527026,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+56,Software Engineer,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+57,Teacher,3852236789,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+58,Research Assistant,6686996351,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+59,Geological Engineer,NULL,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system
+60,Geological Engineer,3523073022,2021-04-02 03:00:54.687,system,2021-04-02 03:01:39.123,system

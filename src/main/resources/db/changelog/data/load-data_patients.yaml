@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-data_patients
+      author: monjasa
+      changes:
+        - loadData:
+            file: db/data/patients.csv
+            relativeToChangelogFile: false
+            separator: ','
+            tableName: patient

@@ -30,7 +30,7 @@ databaseChangeLog:
                   type: VARCHAR(254)
               - column:
                   name: gender_iso
-                  type: SMALLINT
+                  type: VARCHAR(16)
               - column:
                   name: date_of_birth
                   type: date

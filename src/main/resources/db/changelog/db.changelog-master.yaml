@@ -1,5 +1,15 @@
 databaseChangeLog:
+  #
+  # Generate database schema
+  #
   - include:
       file: db/changelog/2021-04/2021-04-30T01-39-00_create-table-main-user.yaml
   - include:
-      file: db/changelog/data/load-data_main-user.yaml
+      file: db/changelog/2021-04/2021-04-30T17-29-00_create-table-patient.yaml
+  #
+  # Populate database with initial data
+  #
+  - include:
+      file: db/changelog/data/load-data_main-users.yaml
+  - include:
+      file: db/changelog/data/load-data_patients.yaml

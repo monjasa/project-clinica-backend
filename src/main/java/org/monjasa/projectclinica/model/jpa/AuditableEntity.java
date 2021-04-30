@@ -20,8 +20,8 @@ import java.time.LocalDateTime;
 public abstract class AuditableEntity<U, PK extends Serializable> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private PK id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_gen")
+    protected PK id;
 
     @CreatedBy
     protected U createdBy;

@@ -2,26 +2,26 @@ package org.monjasa.projectclinica.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.monjasa.projectclinica.model.enumeration.Gender;
 import org.monjasa.projectclinica.model.jpa.AuditableEntity;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
+import javax.persistence.SequenceGenerator;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @Entity
-@EntityListeners(AuditingEntityListener.class)
+@SequenceGenerator(name = "id_gen", sequenceName = "main_user_id_seq", allocationSize = 1)
 public class MainUser extends AuditableEntity<String, Long> {
 
     private String firstName;
 
     private String lastName;
 
-    private String genderIso;
+    private Gender genderIso;
 
     private String email;
 

@@ -6,4 +6,4 @@ spring:
   liquibase:
     enabled: true
 auditing:
-  anonymous-principal: system
+  anonymous-principal: system2
