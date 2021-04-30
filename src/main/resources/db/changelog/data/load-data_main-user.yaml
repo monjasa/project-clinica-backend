@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-data_main-user
+      author: monjasa
+      changes:
+        - loadData:
+            file: db/data/main-user.csv
+            relativeToChangelogFile: false
+            separator: ','
+            tableName: main_user

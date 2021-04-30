@@ -3,7 +3,7 @@ package org.monjasa.projectclinica.util.mapper;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.monjasa.projectclinica.domain.MainUser;
+import org.monjasa.projectclinica.model.MainUser;
 import org.monjasa.projectclinica.dto.MainUserDto;
 
 @Mapper(componentModel = "spring")

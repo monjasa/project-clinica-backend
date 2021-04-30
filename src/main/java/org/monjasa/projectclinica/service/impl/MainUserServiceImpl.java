@@ -23,13 +23,6 @@ public class MainUserServiceImpl implements MainUserService {
 
     private final List<MainUserDto> mainUsers;
 
-    @PostConstruct
-    public void initializeMainUsers() {
-        mainUsers.stream()
-                .map(mainUserMapper::toEntity)
-                .forEach(mainUserRepository::save);
-    }
-
     @Override
     public Page<MainUserDto> getMainUsers(Pageable pageable) {
         return mainUserRepository.findAll(pageable)

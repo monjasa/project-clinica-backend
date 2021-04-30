@@ -1,3 +1,9 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/project_clinica
+    username: postgres
+    password: password
   liquibase:
-    enabled: false
+    enabled: true
+auditing:
+  anonymous-principal: system

@@ -1,0 +1,68 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2021-04-30T01-39-00_create-table-main-user_1
+      author: monjasa
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_main_user
+                  name: id
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                  name: first_name
+                  type: VARCHAR(35)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_name
+                  type: VARCHAR(35)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: email
+                  type: VARCHAR(254)
+              - column:
+                  name: gender_iso
+                  type: SMALLINT
+              - column:
+                  name: date_of_birth
+                  type: date
+              - column:
+                  name: phone_number
+                  type: VARCHAR(15)
+              - column:
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  name: created_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  defaultValue: system
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  name: last_modified_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  defaultValue: system
+                  name: last_modified_by
+                  type: VARCHAR(255)
+            tableName: main_user
+  - changeSet:
+      id: 2021-04-30T01-39-00_create-table-main-user_2
+      author: monjasa
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: first_name
+              - column:
+                  name: last_name
+            indexName: idx_main_user_name
+            tableName: main_user
