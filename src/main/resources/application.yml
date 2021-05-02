@@ -1,9 +1,29 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/project_clinica
-    username: postgres
-    password: password
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
   liquibase:
     enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_OAUTH2_CLIENT_ID}
+            client-secret: ${GOOGLE_OAUTH2_CLIENT_SECRET}
+            redirect-uri: "{baseUrl}/api/oauth2/callback/{registrationId}"
+            target-uri: "http://localhost:4200/login/callback"
+            scope:
+              - email
 auditing:
   anonymous-principal: system2
+server:
+  forward-headers-strategy: framework
+  security:
+    authentication:
+      jwt:
+        base64-secret: ${JWT_AUTH_BASE64_SECRET}
+        token-expires-in-seconds: 86400
+        refresh-token-expires-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000

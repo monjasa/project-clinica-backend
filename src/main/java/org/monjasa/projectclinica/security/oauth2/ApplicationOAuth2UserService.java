@@ -1,8 +1,8 @@
-package org.monjasa.projectclinica.service;
+package org.monjasa.projectclinica.security.oauth2;
 
 import lombok.AllArgsConstructor;
 import org.monjasa.projectclinica.exception.NotFoundException;
-import org.monjasa.projectclinica.model.CustomUserDetails;
+import org.monjasa.projectclinica.security.userdetails.ApplicationUserDetails;
 import org.monjasa.projectclinica.model.MainUser;
 import org.monjasa.projectclinica.repository.MainUserRepository;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
-public class CustomOAuth2UserService extends DefaultOAuth2UserService {
+public class ApplicationOAuth2UserService extends DefaultOAuth2UserService {
 
     private final MainUserRepository mainUserRepository;
 
@@ -25,6 +25,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         MainUser mainUser = mainUserRepository.findByEmail(oAuth2User.getAttribute("email"))
                 .orElseThrow(NotFoundException::new);
 
-        return CustomUserDetails.of(mainUser);
+        return ApplicationUserDetails.of(mainUser);
     }
 }

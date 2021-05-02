@@ -1,4 +1,4 @@
-package org.monjasa.projectclinica.config.jwt;
+package org.monjasa.projectclinica.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -6,65 +6,61 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.monjasa.projectclinica.exception.NotFoundException;
-import org.monjasa.projectclinica.model.CustomUserDetails;
-import org.monjasa.projectclinica.model.JwtToken;
 import org.monjasa.projectclinica.model.MainUser;
 import org.monjasa.projectclinica.repository.MainUserRepository;
+import org.monjasa.projectclinica.security.userdetails.ApplicationUserDetails;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.Date;
 
-@Order(1)
 @Service
 @RequiredArgsConstructor
-public class TokenProvider {
+public class ApplicationTokenProvider {
 
     public static final String REFRESH_KEY = "refresh";
 
-    @Value("${server.security.authentication.jwt.token-validity-in-seconds}")
-    private long tokenExpiration;
+    @Value("${server.security.authentication.jwt.token-expires-in-seconds}")
+    private Long tokenExpiresIn;
 
-    @Value("${server.security.authentication.jwt.refresh-token-validity-in-seconds}")
-    private long refreshTokenExpiration;
+    @Value("${server.security.authentication.jwt.refresh-token-expires-in-seconds}")
+    private Long refreshTokenExpiresIn;
 
     @Value("${server.security.authentication.jwt.base64-secret}")
-    private String secretKey;
+    private String authSecret;
 
     private final MainUserRepository mainUserRepository;
 
     public String createAccessToken(String email) {
         MainUser mainUser = mainUserRepository.findByEmail(email)
                 .orElseThrow(NotFoundException::new);
-        CustomUserDetails userDetails = CustomUserDetails.of(mainUser);
+        ApplicationUserDetails userDetails = ApplicationUserDetails.of(mainUser);
 
         return Jwts.builder()
                 .setSubject(String.valueOf(userDetails.getId()))
                 .setIssuer(userDetails.getEmail())
                 .setIssuedAt(Date.from(Instant.now()))
-                .setExpiration(Date.from(Instant.now().plusSeconds(tokenExpiration)))
-                .signWith(SignatureAlgorithm.HS512, secretKey)
+                .setExpiration(Date.from(Instant.now().plusSeconds(tokenExpiresIn)))
+                .signWith(SignatureAlgorithm.HS512, authSecret)
                 .compact();
     }
 
     public String createRefreshToken(String email) {
-        String random = RandomStringUtils.random(10) + System.nanoTime();
-        long expireTokenMillis = Instant.now().plusSeconds(refreshTokenExpiration).toEpochMilli();
-        Date validity = new Date(expireTokenMillis);
+        String claimValue = RandomStringUtils.randomAlphanumeric(16) + System.nanoTime();
+        Instant expirationTime = Instant.now().plusSeconds(refreshTokenExpiresIn);
         MainUser mainUser = mainUserRepository.findByEmail(email)
                 .orElseThrow(NotFoundException::new);
 
         String refresh = Jwts.builder()
                 .setSubject(email.toLowerCase())
                 .setIssuer(email.toLowerCase())
-                .claim(REFRESH_KEY, random)
-                .signWith(SignatureAlgorithm.HS512, secretKey)
-                .setExpiration(validity)
+                .claim(REFRESH_KEY, claimValue)
+                .signWith(SignatureAlgorithm.HS512, authSecret)
+                .setExpiration(Date.from(expirationTime))
                 .compact();
 
-        JwtToken jwtToken = createJwtToken(expireTokenMillis, refresh);
+        ApplicationToken applicationToken = createJwtToken(expirationTime.toEpochMilli(), refresh);
 //        mainUser.setTokenInfo();
 //        mainUserRepository.save(mainUser);
 
@@ -73,7 +69,7 @@ public class TokenProvider {
 
     public String getUserEmailFromToken(String token) {
         Claims claims = Jwts.parser()
-                .setSigningKey(secretKey)
+                .setSigningKey(authSecret)
                 .parseClaimsJws(token)
                 .getBody();
 
@@ -83,7 +79,7 @@ public class TokenProvider {
     public boolean validateToken(String authToken) {
         boolean tokenValid = true;
         try {
-            Jwts.parser().setSigningKey(secretKey).parseClaimsJws(authToken);
+            Jwts.parser().setSigningKey(authSecret).parseClaimsJws(authToken);
         } catch (RuntimeException exception) {
             tokenValid = false;
         }
@@ -91,9 +87,9 @@ public class TokenProvider {
         return tokenValid;
     }
 
-    private JwtToken createJwtToken(long expireTokenMillis, String refresh) {
-        return JwtToken.builder()
-                .expireTimeMillis(expireTokenMillis)
+    private ApplicationToken createJwtToken(long expirationTimeMillis, String refresh) {
+        return ApplicationToken.builder()
+                .expirationTimeMillis(expirationTimeMillis)
                 .refreshToken(refresh)
                 .issuedAt(Instant.now())
                 .build();

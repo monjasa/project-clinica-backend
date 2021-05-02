@@ -1,8 +1,7 @@
-package org.monjasa.projectclinica.service;
+package org.monjasa.projectclinica.security.userdetails;
 
 import lombok.RequiredArgsConstructor;
 import org.monjasa.projectclinica.exception.NotFoundException;
-import org.monjasa.projectclinica.model.CustomUserDetails;
 import org.monjasa.projectclinica.model.MainUser;
 import org.monjasa.projectclinica.repository.MainUserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CustomUserDetailsService implements UserDetailsService {
+public class ApplicationUserDetailsService implements UserDetailsService {
 
     private final MainUserRepository mainUserRepository;
 
@@ -21,6 +20,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         MainUser mainUser = mainUserRepository.findByEmail(username)
                 .orElseThrow(NotFoundException::new);
 
-        return CustomUserDetails.of(mainUser);
+        return ApplicationUserDetails.of(mainUser);
     }
 }

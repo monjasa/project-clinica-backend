@@ -1,4 +1,4 @@
-package org.monjasa.projectclinica.model;
+package org.monjasa.projectclinica.security.jwt;
 
 import lombok.*;
 
@@ -13,11 +13,11 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class JwtToken {
+public class ApplicationToken {
 
     private String refreshToken;
 
-    private Long expireTimeMillis;
+    private Long expirationTimeMillis;
 
     private Instant issuedAt;
 }
