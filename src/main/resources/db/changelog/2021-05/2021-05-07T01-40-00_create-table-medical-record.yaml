@@ -1,0 +1,74 @@
+databaseChangeLog:
+- changeSet:
+    id: 2021-05-07T01-40-00_create-table-medical-record_1
+    author: monjasa
+    changes:
+      - createTable:
+          columns:
+            - column:
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+                  primaryKeyName: pk_medical_record
+                name: id
+                type: INTEGER
+            - column:
+                name: patient_id
+                type: INTEGER
+            - column:
+                name: height
+                type: numeric(3, 2)
+            - column:
+                name: weight
+                type: numeric(4, 1)
+            - column:
+                name: blood_type_id
+                type: INTEGER
+            - column:
+                defaultValueComputed: now()
+                name: created_date
+                type: TIMESTAMP(3) WITHOUT TIME ZONE
+            - column:
+                defaultValue: system
+                name: created_by
+                type: VARCHAR(254)
+            - column:
+                defaultValueComputed: now()
+                name: last_modified_date
+                type: TIMESTAMP(3) WITHOUT TIME ZONE
+            - column:
+                defaultValue: system
+                name: last_modified_by
+                type: VARCHAR(254)
+          tableName: medical_record
+- changeSet:
+    id: 2021-05-07T01-40-00_create-table-medical-record_2
+    author: monjasa
+    changes:
+      - addForeignKeyConstraint:
+          baseColumnNames: patient_id
+          baseTableName: medical_record
+          constraintName: fk_medical_record_patient
+          deferrable: false
+          initiallyDeferred: false
+          onDelete: NO ACTION
+          onUpdate: NO ACTION
+          referencedColumnNames: main_user_id
+          referencedTableName: patient
+          validate: true
+- changeSet:
+    id: 2021-05-07T01-40-00_create-table-medical-record_3
+    author: monjasa
+    changes:
+      - addForeignKeyConstraint:
+          baseColumnNames: blood_type_id
+          baseTableName: medical_record
+          constraintName: fk_medical_record_blood_type
+          deferrable: false
+          initiallyDeferred: false
+          onDelete: NO ACTION
+          onUpdate: NO ACTION
+          referencedColumnNames: id
+          referencedTableName: blood_type
+          validate: true

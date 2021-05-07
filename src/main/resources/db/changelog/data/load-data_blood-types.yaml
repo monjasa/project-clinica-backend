@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-data_blood-types
+      author: monjasa
+      changes:
+        - loadData:
+            file: db/data/blood-types.csv
+            relativeToChangelogFile: false
+            separator: ','
+            tableName: blood_type

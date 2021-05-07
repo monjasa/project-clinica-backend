@@ -12,5 +12,5 @@ public enum Gender {
     NOT_APPLICABLE("Not applicable");
 
     @Getter
-    private final String designator;
+    private final String designation;
 }

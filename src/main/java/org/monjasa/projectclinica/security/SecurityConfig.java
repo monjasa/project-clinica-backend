@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.monjasa.projectclinica.security.jwt.ApplicationTokenAuthenticationFilter;
 import org.monjasa.projectclinica.security.oauth2.ApplicationOAuth2UserService;
 import org.monjasa.projectclinica.security.oauth2.OAuth2AuthenticationSuccessHandler;
-import org.monjasa.projectclinica.security.userdetails.ApplicationUserDetailsService;
+import org.monjasa.projectclinica.security.userdetails.ApplicationUserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -31,14 +31,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final ApplicationOAuth2UserService applicationOAuth2UserService;
 
-    private final ApplicationUserDetailsService applicationUserDetailsService;
+    private final ApplicationUserDetailsServiceImpl applicationUserDetailsServiceImpl;
 
     private final AuthenticationEntryPoint authenticationEntryPoint;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                .userDetailsService(applicationUserDetailsService)
+                .userDetailsService(applicationUserDetailsServiceImpl)
                 .passwordEncoder(passwordEncoder());
     }
 

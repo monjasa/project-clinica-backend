@@ -1,4 +1,5 @@
 databaseChangeLog:
+
   #
   # Generate database schema
   #
@@ -6,6 +7,11 @@ databaseChangeLog:
       file: db/changelog/2021-04/2021-04-30T01-39-00_create-table-main-user.yaml
   - include:
       file: db/changelog/2021-04/2021-04-30T17-29-00_create-table-patient.yaml
+  - include:
+      file: db/changelog/2021-05/2021-05-07T01-37-00_create-table-blood-type.yaml
+  - include:
+      file: db/changelog/2021-05/2021-05-07T01-40-00_create-table-medical-record.yaml
+
   #
   # Populate database with initial data
   #
@@ -13,3 +19,7 @@ databaseChangeLog:
       file: db/changelog/data/load-data_main-users.yaml
   - include:
       file: db/changelog/data/load-data_patients.yaml
+  - include:
+      file: db/changelog/data/load-data_blood-types.yaml
+  - include:
+      file: db/changelog/data/load-data_medical-records.yaml

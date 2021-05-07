@@ -11,15 +11,15 @@ import java.util.Optional;
 public class GenderConverter implements AttributeConverter<Gender, String> {
 
     @Override
-    public String convertToDatabaseColumn(Gender attribute) {
-        return Optional.ofNullable(attribute)
-                .map(Gender::getDesignator)
+    public String convertToDatabaseColumn(Gender gender) {
+        return Optional.ofNullable(gender)
+                .map(Gender::getDesignation)
                 .orElse(null);
     }
 
     @Override
-    public Gender convertToEntityAttribute(String dbData) {
-        return Optional.ofNullable(dbData)
+    public Gender convertToEntityAttribute(String genderDesignation) {
+        return Optional.ofNullable(genderDesignation)
                 .map(Gender::valueOf)
                 .orElse(null);
     }

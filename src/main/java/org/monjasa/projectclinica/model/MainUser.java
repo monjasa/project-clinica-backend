@@ -29,4 +29,6 @@ public class MainUser extends AuditableEntity<String, Long> {
     private LocalDate dateOfBirth;
 
     private String phoneNumber;
+
+    private String pictureUrl;
 }

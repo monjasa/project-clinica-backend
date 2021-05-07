@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MainUserShortInfoDto {
+public class PatientMedicalRecord {
 
     private Long id;
 
@@ -13,11 +13,11 @@ public class MainUserShortInfoDto {
 
     private String lastName;
 
-    private String email;
+    private String insuranceNumber;
 
-    private String dateOfBirth;
+    private Double height;
 
-    private String gender;
+    private Double weight;
 
-    private String pictureUrl;
+    private String bloodType;
 }

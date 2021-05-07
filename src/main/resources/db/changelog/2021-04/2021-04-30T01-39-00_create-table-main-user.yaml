@@ -38,6 +38,9 @@ databaseChangeLog:
                   name: phone_number
                   type: VARCHAR(15)
               - column:
+                  name: picture_url
+                  type: VARCHAR
+              - column:
                   defaultValueComputed: CURRENT_TIMESTAMP
                   name: created_date
                   type: TIMESTAMP WITHOUT TIME ZONE

@@ -1,0 +1,37 @@
+databaseChangeLog:
+- changeSet:
+    id: 2021-05-07T01-37-00_create-table-blood-type_1
+    author: monjasa
+    changes:
+      - createTable:
+          columns:
+            - column:
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+                  primaryKeyName: pk_blood_type
+                name: id
+                type: INTEGER
+            - column:
+                constraints:
+                  nullable: false
+                name: name
+                type: VARCHAR(3)
+            - column:
+                defaultValueComputed: CURRENT_TIMESTAMP
+                name: created_date
+                type: TIMESTAMP WITHOUT TIME ZONE
+            - column:
+                defaultValue: system
+                name: created_by
+                type: VARCHAR(255)
+            - column:
+                defaultValueComputed: CURRENT_TIMESTAMP
+                name: last_modified_date
+                type: TIMESTAMP WITHOUT TIME ZONE
+            - column:
+                defaultValue: system
+                name: last_modified_by
+                type: VARCHAR(255)
+          tableName: blood_type

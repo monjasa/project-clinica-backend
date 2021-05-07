@@ -12,12 +12,10 @@ spring:
           google:
             client-id: ${GOOGLE_OAUTH2_CLIENT_ID}
             client-secret: ${GOOGLE_OAUTH2_CLIENT_SECRET}
-            redirect-uri: "{baseUrl}/api/oauth2/callback/{registrationId}"
-            target-uri: "http://localhost:4200/login/callback"
+            redirect-uri: "https://f52b7c0bb447.ngrok.io/api/oauth2/callback/google"
+            target-uri: "http://localhost:4200/authentication/oauth2/callback"
             scope:
               - email
-auditing:
-  anonymous-principal: system2
 server:
   forward-headers-strategy: framework
   security:
@@ -26,4 +24,5 @@ server:
         base64-secret: ${JWT_AUTH_BASE64_SECRET}
         token-expires-in-seconds: 86400
         refresh-token-expires-in-seconds: 86400
-        token-validity-in-seconds-for-remember-me: 2592000
+auditing:
+  anonymous-principal: system2

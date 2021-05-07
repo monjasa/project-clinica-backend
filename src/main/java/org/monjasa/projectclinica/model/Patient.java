@@ -6,6 +6,7 @@ import org.monjasa.projectclinica.model.jpa.AuditableEntity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
@@ -15,10 +16,13 @@ import javax.persistence.OneToOne;
 public class Patient extends AuditableEntity<String, Long> {
 
     @MapsId
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private MainUser mainUser;
 
     private String occupation;
 
     private String insuranceNumber;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "patient")
+    private MedicalRecord medicalRecord;
 }

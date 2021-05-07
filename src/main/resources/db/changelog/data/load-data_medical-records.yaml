@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-data_medical-records
+      author: monjasa
+      changes:
+        - loadData:
+            file: db/data/medical-records.csv
+            relativeToChangelogFile: false
+            separator: ','
+            tableName: medical_record
