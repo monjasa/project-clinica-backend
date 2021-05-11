@@ -1,4 +1,4 @@
-package org.monjasa.projectclinica.model;
+package org.monjasa.projectclinica.model.mainuser;
 
 import lombok.Getter;
 import lombok.Setter;

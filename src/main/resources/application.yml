@@ -12,7 +12,7 @@ spring:
           google:
             client-id: ${GOOGLE_OAUTH2_CLIENT_ID}
             client-secret: ${GOOGLE_OAUTH2_CLIENT_SECRET}
-            redirect-uri: "https://f52b7c0bb447.ngrok.io/api/oauth2/callback/google"
+            redirect-uri: "https://000a2143f492.ngrok.io/api/oauth2/callback/google"
             target-uri: "http://localhost:4200/authentication/oauth2/callback"
             scope:
               - email

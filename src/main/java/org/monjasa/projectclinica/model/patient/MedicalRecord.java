@@ -1,4 +1,4 @@
-package org.monjasa.projectclinica.model;
+package org.monjasa.projectclinica.model.patient;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 import java.math.BigDecimal;

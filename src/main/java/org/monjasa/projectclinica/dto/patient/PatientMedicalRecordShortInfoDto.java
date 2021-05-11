@@ -1,11 +1,11 @@
-package org.monjasa.projectclinica.dto;
+package org.monjasa.projectclinica.dto.patient;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class PatientMedicalRecord {
+public class PatientMedicalRecordShortInfoDto {
 
     private Long id;
 

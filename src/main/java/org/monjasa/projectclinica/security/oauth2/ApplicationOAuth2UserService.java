@@ -3,7 +3,7 @@ package org.monjasa.projectclinica.security.oauth2;
 import lombok.AllArgsConstructor;
 import org.monjasa.projectclinica.exception.NotFoundException;
 import org.monjasa.projectclinica.security.userdetails.ApplicationUserDetails;
-import org.monjasa.projectclinica.model.MainUser;
+import org.monjasa.projectclinica.model.mainuser.MainUser;
 import org.monjasa.projectclinica.repository.MainUserRepository;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;

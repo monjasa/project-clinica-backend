@@ -2,7 +2,7 @@ package org.monjasa.projectclinica.security.userdetails;
 
 import lombok.RequiredArgsConstructor;
 import org.monjasa.projectclinica.exception.NotFoundException;
-import org.monjasa.projectclinica.model.MainUser;
+import org.monjasa.projectclinica.model.mainuser.MainUser;
 import org.monjasa.projectclinica.repository.MainUserRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

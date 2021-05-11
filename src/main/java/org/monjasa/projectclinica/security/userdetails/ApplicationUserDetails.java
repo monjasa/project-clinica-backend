@@ -3,7 +3,7 @@ package org.monjasa.projectclinica.security.userdetails;
 import lombok.Builder;
 import lombok.Getter;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.monjasa.projectclinica.model.MainUser;
+import org.monjasa.projectclinica.model.mainuser.MainUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

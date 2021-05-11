@@ -6,7 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.monjasa.projectclinica.exception.NotFoundException;
-import org.monjasa.projectclinica.model.MainUser;
+import org.monjasa.projectclinica.model.mainuser.MainUser;
 import org.monjasa.projectclinica.repository.MainUserRepository;
 import org.monjasa.projectclinica.security.userdetails.ApplicationUserDetails;
 import org.springframework.beans.factory.annotation.Value;

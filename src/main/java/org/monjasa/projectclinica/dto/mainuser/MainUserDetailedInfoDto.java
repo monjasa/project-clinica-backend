@@ -1,11 +1,11 @@
-package org.monjasa.projectclinica.dto;
+package org.monjasa.projectclinica.dto.mainuser;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class MainUserShortInfoDto {
+public class MainUserDetailedInfoDto {
 
     private Long id;
 
@@ -14,6 +14,8 @@ public class MainUserShortInfoDto {
     private String lastName;
 
     private String email;
+
+    private String phoneNumber;
 
     private String dateOfBirth;
 

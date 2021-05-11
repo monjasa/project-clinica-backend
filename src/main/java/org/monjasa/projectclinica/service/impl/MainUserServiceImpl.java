@@ -1,7 +1,7 @@
 package org.monjasa.projectclinica.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.monjasa.projectclinica.dto.MainUserShortInfoDto;
+import org.monjasa.projectclinica.dto.mainuser.MainUserDetailedInfoDto;
 import org.monjasa.projectclinica.exception.NotFoundException;
 import org.monjasa.projectclinica.repository.MainUserRepository;
 import org.monjasa.projectclinica.security.userdetails.ApplicationUserDetails;
@@ -21,7 +21,7 @@ public class MainUserServiceImpl implements MainUserService {
     private final MainUserMapper mainUserMapper;
 
     @Override
-    public MainUserShortInfoDto getCurrentUser() {
+    public MainUserDetailedInfoDto getCurrentUser() {
         ApplicationUserDetails currentUserDetails = applicationUserDetailsService.getCurrentUserDetails();
         return mainUserRepository.findById(currentUserDetails.getId())
                 .map(mainUserMapper::toShortInfoDto)

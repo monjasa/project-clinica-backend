@@ -1,8 +1,8 @@
 package org.monjasa.projectclinica.service;
 
-import org.monjasa.projectclinica.dto.MainUserShortInfoDto;
+import org.monjasa.projectclinica.dto.mainuser.MainUserDetailedInfoDto;
 
 public interface MainUserService {
 
-    MainUserShortInfoDto getCurrentUser();
+    MainUserDetailedInfoDto getCurrentUser();
 }

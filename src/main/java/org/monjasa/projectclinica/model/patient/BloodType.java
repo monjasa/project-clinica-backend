@@ -1,4 +1,4 @@
-package org.monjasa.projectclinica.model;
+package org.monjasa.projectclinica.model.patient;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 @Setter
 @Entity
 public class BloodType extends AuditableEntity<String, Long> {
-
 
     private String name;
 }

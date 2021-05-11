@@ -1,8 +1,9 @@
-package org.monjasa.projectclinica.model;
+package org.monjasa.projectclinica.model.patient;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.monjasa.projectclinica.model.jpa.AuditableEntity;
+import org.monjasa.projectclinica.model.mainuser.MainUser;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
