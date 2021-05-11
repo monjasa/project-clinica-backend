@@ -8,6 +8,8 @@ databaseChangeLog:
             - column:
                 constraints:
                   nullable: false
+                  primaryKey: true
+                  primaryKeyName: pk_medical_employee
                 name: main_user_id
                 type: INTEGER
             - column:

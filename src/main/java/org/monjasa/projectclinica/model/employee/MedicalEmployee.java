@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
+@Table(name = "medical_employee")
 public class MedicalEmployee extends AuditableEntity<String, Long> {
 
     @MapsId

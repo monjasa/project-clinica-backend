@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-data_addresses
+      author: monjasa
+      changes:
+        - loadData:
+            file: db/data/addresses.csv
+            relativeToChangelogFile: false
+            separator: ','
+            tableName: address

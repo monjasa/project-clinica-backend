@@ -1,0 +1,3 @@
+name,phone_number,address_id,created_date,created_by,last_modified_date,last_modified_by
+Clinic A,380677852255,1,2021-04-11 16:11:17.687,system,2021-04-11 16:11:17.687,system
+Clinic B,380931235712,2,2021-04-11 16:11:17.697,system,2021-04-11 16:11:17.697,system

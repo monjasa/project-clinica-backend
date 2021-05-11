@@ -1,0 +1,74 @@
+databaseChangeLog:
+- changeSet:
+    id: 2021-05-11T22-06-00_create-table-appointment-slot_1
+    author: monjasa
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: pk_appointment_slot
+            name: id
+            type: INTEGER
+        - column:
+            name: medical_employee_id
+            type: INTEGER
+        - column:
+            name: clinic_id
+            type: INTEGER
+        - column:
+            name: start_datetime
+            type: TIMESTAMP(3) WITHOUT TIME ZONE
+        - column:
+            name: end_datetime
+            type: TIMESTAMP(3) WITHOUT TIME ZONE
+        - column:
+            defaultValueComputed: now()
+            name: created_date
+            type: TIMESTAMP(3) WITHOUT TIME ZONE
+        - column:
+            defaultValue: system
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            defaultValueComputed: now()
+            name: last_modified_date
+            type: TIMESTAMP(3) WITHOUT TIME ZONE
+        - column:
+            defaultValue: system
+            name: last_modified_by
+            type: VARCHAR(255)
+        tableName: appointment_slot
+- changeSet:
+    id: 2021-05-11T22-06-00_create-table-appointment-slot_2
+    author: monjasa
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: clinic_id
+        baseTableName: appointment_slot
+        constraintName: fk_appointment_slot_clinic
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: clinic
+        validate: true
+- changeSet:
+    id: 2021-05-11T22-06-00_create-table-appointment-slot_3
+    author: monjasa
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: medical_employee_id
+        baseTableName: appointment_slot
+        constraintName: fk_appointment_slot_medical_employee
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: main_user_id
+        referencedTableName: medical_employee
+        validate: true

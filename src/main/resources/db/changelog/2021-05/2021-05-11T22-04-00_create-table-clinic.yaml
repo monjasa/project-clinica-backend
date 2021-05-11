@@ -1,0 +1,56 @@
+databaseChangeLog:
+- changeSet:
+    id: 2021-05-11T22-04-00_create-table-clinic_1
+    author: monjasa
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: pk_clinic
+            name: id
+            type: INTEGER
+        - column:
+            name: name
+            type: VARCHAR(256)
+        - column:
+            name: phone_number
+            type: VARCHAR(15)
+        - column:
+            name: address_id
+            type: INTEGER
+        - column:
+            defaultValueComputed: now()
+            name: created_date
+            type: TIMESTAMP(3) WITHOUT TIME ZONE
+        - column:
+            defaultValue: system
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            defaultValueComputed: now()
+            name: last_modified_date
+            type: TIMESTAMP(3) WITHOUT TIME ZONE
+        - column:
+            defaultValue: system
+            name: last_modified_by
+            type: VARCHAR(255)
+        tableName: clinic
+- changeSet:
+    id: 2021-05-11T22-04-00_create-table-clinic_2
+    author: monjasa
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: address_id
+        baseTableName: clinic
+        constraintName: fk_clinic_address
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: address
+        validate: true

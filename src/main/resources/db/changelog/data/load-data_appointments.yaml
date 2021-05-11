@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-data_appointments
+      author: monjasa
+      changes:
+        - loadData:
+            file: db/data/appointments.csv
+            relativeToChangelogFile: false
+            separator: ','
+            tableName: appointment

@@ -1,0 +1,71 @@
+databaseChangeLog:
+- changeSet:
+    id: 2021-05-11T22-02-00_create-table-address_1
+    author: monjasa
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: pk_address
+            name: id
+            type: INTEGER
+        - column:
+            name: country
+            type: CHAR(2)
+        - column:
+            name: name_line
+            type: VARCHAR(512)
+        - column:
+            name: first_name
+            type: VARCHAR(35)
+        - column:
+            name: last_name
+            type: VARCHAR(35)
+        - column:
+            name: organisation_name
+            type: VARCHAR(128)
+        - column:
+            name: administrative_area
+            type: VARCHAR(64)
+        - column:
+            name: sub_administrative_area
+            type: VARCHAR(64)
+        - column:
+            name: locality
+            type: VARCHAR(32)
+        - column:
+            name: dependent_locality
+            type: VARCHAR(32)
+        - column:
+            name: postal_code
+            type: VARCHAR(10)
+        - column:
+            name: thoroughfare
+            type: VARCHAR(128)
+        - column:
+            name: premise
+            type: VARCHAR(32)
+        - column:
+            name: sub_premise
+            type: VARCHAR(32)
+        - column:
+            defaultValueComputed: now()
+            name: created_date
+            type: TIMESTAMP(3) WITHOUT TIME ZONE
+        - column:
+            defaultValue: system
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            defaultValueComputed: now()
+            name: last_modified_date
+            type: TIMESTAMP(3) WITHOUT TIME ZONE
+        - column:
+            defaultValue: system
+            name: last_modified_by
+            type: VARCHAR(255)
+        tableName: address

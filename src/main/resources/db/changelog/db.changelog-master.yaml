@@ -19,6 +19,14 @@ databaseChangeLog:
       file: db/changelog/2021-05/2021-05-11T20-28-00_create-table-authority.yaml
   - include:
       file: db/changelog/2021-05/2021-05-11T20-31-00_create-table-main-user-authority.yaml
+  - include:
+      file: db/changelog/2021-05/2021-05-11T22-02-00_create-table-address.yaml
+  - include:
+      file: db/changelog/2021-05/2021-05-11T22-04-00_create-table-clinic.yaml
+  - include:
+      file: db/changelog/2021-05/2021-05-11T22-06-00_create-table-appointment-slot.yaml
+  - include:
+      file: db/changelog/2021-05/2021-05-11T22-07-00_create-table-appointment.yaml
 
   #
   # Populate database with initial data
@@ -35,3 +43,11 @@ databaseChangeLog:
       file: db/changelog/data/load-data_specialities.yaml
   - include:
       file: db/changelog/data/load-data_medical-employees.yaml
+  - include:
+      file: db/changelog/data/load-data_addresses.yaml
+  - include:
+      file: db/changelog/data/load-data_clinics.yaml
+  - include:
+      file: db/changelog/data/load-data_appointment-slots.yaml
+  - include:
+      file: db/changelog/data/load-data_appointments.yaml

@@ -13,6 +13,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@Table(name = "main_user")
 @SequenceGenerator(name = "id_gen", sequenceName = "main_user_id_seq", allocationSize = 1)
 public class MainUser extends AuditableEntity<String, Long> {
 
