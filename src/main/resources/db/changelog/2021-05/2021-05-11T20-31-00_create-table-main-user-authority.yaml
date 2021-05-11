@@ -1,0 +1,68 @@
+databaseChangeLog:
+- changeSet:
+    id: 2021-05-11T20-31-00_create-table-main-user-authority_1
+    author: monjasa
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: pk_main_user_authority
+            name: main_user_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: pk_main_user_authority
+            name: authority_id
+            type: INTEGER
+        - column:
+            defaultValueComputed: now()
+            name: created_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValue: system
+            name: created_by
+            type: VARCHAR(255)
+        - column:
+            defaultValueComputed: now()
+            name: last_modified_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            defaultValue: system
+            name: last_modified_by
+            type: VARCHAR(255)
+        tableName: main_user_authority
+- changeSet:
+    id: 2021-05-11T20-31-00_create-table-main-user-authority_2
+    author: monjasa
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: authority_id
+        baseTableName: main_user_authority
+        constraintName: fk_main_user_authority_authority
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: authority
+        validate: true
+- changeSet:
+    id: 2021-05-11T20-31-00_create-table-main-user-authority_3
+    author: monjasa
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: main_user_id
+        baseTableName: main_user_authority
+        constraintName: fk_main_user_authority_main_user
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: main_user
+        validate: true

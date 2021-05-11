@@ -11,6 +11,14 @@ databaseChangeLog:
       file: db/changelog/2021-05/2021-05-07T01-37-00_create-table-blood-type.yaml
   - include:
       file: db/changelog/2021-05/2021-05-07T01-40-00_create-table-medical-record.yaml
+  - include:
+      file: db/changelog/2021-05/2021-05-11T20-23-00_create-table-speciality.yaml
+  - include:
+      file: db/changelog/2021-05/2021-05-11T20-25-00_create-table-medical-employee.yaml
+  - include:
+      file: db/changelog/2021-05/2021-05-11T20-28-00_create-table-authority.yaml
+  - include:
+      file: db/changelog/2021-05/2021-05-11T20-31-00_create-table-main-user-authority.yaml
 
   #
   # Populate database with initial data
@@ -23,3 +31,7 @@ databaseChangeLog:
       file: db/changelog/data/load-data_blood-types.yaml
   - include:
       file: db/changelog/data/load-data_medical-records.yaml
+  - include:
+      file: db/changelog/data/load-data_specialities.yaml
+  - include:
+      file: db/changelog/data/load-data_medical-employees.yaml

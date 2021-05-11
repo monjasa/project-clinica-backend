@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-data_specialities
+      author: monjasa
+      changes:
+        - loadData:
+            file: db/data/specialities.csv
+            relativeToChangelogFile: false
+            separator: ','
+            tableName: speciality

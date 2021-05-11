@@ -5,11 +5,10 @@ import lombok.Setter;
 import org.monjasa.projectclinica.model.enumeration.Gender;
 import org.monjasa.projectclinica.model.jpa.AuditableEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -31,4 +30,12 @@ public class MainUser extends AuditableEntity<String, Long> {
     private String phoneNumber;
 
     private String pictureUrl;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "main_user_authority",
+            joinColumns = @JoinColumn(name = "main_user_id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_id")
+    )
+    private Set<Authority> authorities;
 }

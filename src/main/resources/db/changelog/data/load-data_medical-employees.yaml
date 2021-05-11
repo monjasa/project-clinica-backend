@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-data_medical-employees.yaml
+      author: monjasa
+      changes:
+        - loadData:
+            file: db/data/medical-employees.csv
+            relativeToChangelogFile: false
+            separator: ','
+            tableName: medical_employee
