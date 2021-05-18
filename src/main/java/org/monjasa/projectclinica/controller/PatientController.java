@@ -1,6 +1,7 @@
 package org.monjasa.projectclinica.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.monjasa.projectclinica.dto.NamedIdentificationDto;
 import org.monjasa.projectclinica.dto.patient.PatientDetailedInfoDto;
 import org.monjasa.projectclinica.dto.patient.PatientMedicalRecordShortInfoDto;
 import org.monjasa.projectclinica.service.PatientService;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/patients")
@@ -29,5 +32,11 @@ public class PatientController {
     @PreAuthorize("hasAuthority('DEFAULT_AUTHORITY')")
     public PatientDetailedInfoDto getPatient(@PathVariable Long id) {
         return patientService.getPatientById(id);
+    }
+
+    @GetMapping("/names")
+    @PreAuthorize("hasAuthority('DEFAULT_AUTHORITY')")
+    public List<NamedIdentificationDto> getPatientNames() {
+        return patientService.getAllPatientNames();
     }
 }

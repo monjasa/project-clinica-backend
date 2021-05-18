@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/project_clinica"
+    username: postgres
+    password: password
+  liquibase:
+    enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 447044429930-ev4jueqsf8k35a4or1epq4p2nusvmvnj.apps.googleusercontent.com
+            client-secret: t6hfIo37hisluyyjTaidAn0y
+            redirect-uri: "https://03e41d55912d.ngrok.io/api/oauth2/callback/google"
+            target-uri: "http://localhost:4200/authentication/oauth2/callback"
+            scope:
+              - email
+server:
+  forward-headers-strategy: framework
+  security:
+    authentication:
+      jwt:
+        base64-secret: ZGZmYjM3ZWYwNjM3ZDcwNWQ3NjgwZWRmZmNiM2EwNTUyYWI5NDVlZWM0Yzk4ZGU1OTdmOWU2M2JjOGZlZjgxZGFlYTU0OWFhMWZmNGE3ODkyNzZhZTNiNTk2ZTA1MTViZTYxNTdiMjNkYjJjMmU1NzcyYjNjN2QxNjNiODViZTc=
+        token-expires-in-seconds: 86400
+        refresh-token-expires-in-seconds: 86400
+auditing:
+  anonymous-principal: system
